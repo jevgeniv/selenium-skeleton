@@ -41,7 +41,7 @@ public class TrivialSearchTest {
         Assert.assertEquals("http://www.nortal.ee/", driver.getCurrentUrl());
 
         // finalize stuff, closes driver/browser
-        driver.close();
+        driver.quit();
     }
 
     private void searchFor(String keyword) {
