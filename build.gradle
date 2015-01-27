@@ -11,10 +11,8 @@ sourceSets {
         resources {
             srcDir 'src/resources'
         }
+        output.resourcesDir="build/classes/test"
     }
-}
-processTestResources{
-    destinationDir = file('build/classes')
 }
 
 
@@ -26,5 +24,4 @@ dependencies {
     compile group: 'junit', name: 'junit', version: '4.+'
     compile 'org.seleniumhq.selenium:selenium-java:2.44.+'
     compile 'org.slf4j:slf4j-simple:1.7.+'
-
 }
