@@ -25,3 +25,8 @@ dependencies {
     compile 'org.seleniumhq.selenium:selenium-java:2.44.+'
     compile 'org.slf4j:slf4j-simple:1.7.+'
 }
+
+/* Custom test tasks */
+task testSelected(type: Test, dependsOn: testClasses) {
+    include '**/GoogleSuggestTest.class'
+}
