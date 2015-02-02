@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  * Created by jevgeni on 1/30/15.
@@ -20,15 +18,27 @@ public class JiraCreateIssueTest extends JiraSeleniumTestBase {
     }
 
     @Test
-    public void login() {
-        WebDriver driver = new FirefoxDriver();
-        driver.get(getJiraUrl() + "/login.jsp");
-        driver.findElement(By.id("login-form-username")).sendKeys("tstcreateissue8"); // TODO
-        driver.findElement(By.id("login-form-password")).sendKeys("password");
-        driver.findElement(By.id("login-form-submit")).click();
+    public void search_1() {
+        login();
+        searchIssue("ATL-348");// TODO
+    }
 
-        driver.findElement(By.id("quickSearchInput")).sendKeys("ATL-348"); // TODO
-        driver.findElement(By.id("quickSearchInput")).sendKeys(Keys.RETURN);
+    @Test
+    public void search_2() {
+        login();
+        searchIssue("ATL-78263497863498726373");
+    }
+
+    private void searchIssue(String searchKeyword) {
+        getDriver().findElement(By.id("quickSearchInput")).sendKeys(searchKeyword);
+        getDriver().findElement(By.id("quickSearchInput")).sendKeys(Keys.RETURN);
+    }
+
+    private void login() {
+        getDriver().get(getJiraUrl() + "/login.jsp");
+        getDriver().findElement(By.id("login-form-username")).sendKeys("tstcreateissue8"); // TODO
+        getDriver().findElement(By.id("login-form-password")).sendKeys("password");
+        getDriver().findElement(By.id("login-form-submit")).click();
     }
 
     private void assertNotEmpty(String s) {
