@@ -2,10 +2,13 @@ package com.nortal.course.selenium.jira;
 
 import com.nortal.course.selenium.SeleniumConfig;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Base type of Selenium tests.
@@ -49,6 +52,10 @@ public class JiraSeleniumTestBase {
             driver = new FirefoxDriver();
         }
         return driver;
+    }
+
+    protected Wait<WebDriver> getWait() {
+        return new FluentWait<WebDriver>(getDriver()).withTimeout(15, TimeUnit.SECONDS);
     }
 
     protected LoginPage login() {
