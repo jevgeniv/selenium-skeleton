@@ -1,12 +1,12 @@
-package com.nortal.course.selenium.jira;
+package com.nortal.course.selenium;
 
 import java.io.IOException;
 import java.util.Properties;
 
 /**
- * Created by jevgeni on 1/30/15.
+ * Runtime properties & configuration.
  */
-public class SeleniumTestConfig {
+public class SeleniumConfig {
 
     private Properties properties;
 
