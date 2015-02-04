@@ -10,3 +10,6 @@ build/
 /.idea/dictionaries/*
 
 *.iml
+
+/custom.properties
+/src/resources/selenium-rc.properties
