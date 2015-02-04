@@ -9,7 +9,7 @@ public class CreateIssuePage {
     private final JiraSeleniumTestBase testBase;
 
     @FindBy(id="summary")
-    private WebElement summaryField;
+    private WebElement summaryFieldProxy;
 
     public static CreateIssuePage makeInstance(JiraSeleniumTestBase testBase) {
         CreateIssuePage page = new CreateIssuePage(testBase);
@@ -22,15 +22,12 @@ public class CreateIssuePage {
     }
 
     public boolean isReady() {
-        return !testBase.getDriver().findElements(By.id("issuetype-field")).isEmpty();
+        return !testBase.getDriver().findElements(By.id("issuetype-field")).isEmpty()
+                && !testBase.getDriver().findElements(By.id("summary")).isEmpty();
     }
 
     public WebElement getSummaryProxy() {
-        return summaryField;
-    }
-
-    public WebElement getPriorityField() {
-        return testBase.getDriver().findElement(By.id("priority-field"));
+        return summaryFieldProxy;
     }
 
 }

@@ -7,13 +7,11 @@ import org.openqa.selenium.support.FindBy;
  * Elements present on most of non-overlayed pages.
  */
 public class MainPageHeader {
-    private JiraSeleniumTestBase testBase;
-
     @FindBy(id = "create_link")
-    private WebElement createIssueClickable;
+    private WebElement createIssueClickableProxy;
 
     public void clickCreateIssue() {
-        createIssueClickable.click();
+        createIssueClickableProxy.click(); // ~= driver.findElement(...).select();
     }
 
 }
