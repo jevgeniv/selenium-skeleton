@@ -8,6 +8,7 @@ build/
 /.idea/libraries/*
 /.idea/scopes/*
 /.idea/dictionaries/*
+/.idea/copyright/*
 
 *.iml
 
