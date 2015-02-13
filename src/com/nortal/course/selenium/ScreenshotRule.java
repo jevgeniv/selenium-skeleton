@@ -24,16 +24,6 @@ public class ScreenshotRule extends TestWatcher {
 
     @Override
     protected void failed(Throwable e, Description description) {
-        final String screenShotName =
-                description.getClassName() + "-" + new Date().toString() + "[" + (screenshotId++) + "].png";
-        String fileName = "build" + File.separator + "reports" + File.separator + "tests" + File.separator + screenShotName;
-        log.info("saving screenshot: " + fileName);
-        try {
-            File screenshot = ((TakesScreenshot) driverSup.get()).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenshot, new File(fileName));
-        } catch (Exception ex) {
-            log.warn("Could not make snapshot", ex);
-        }
         makeScreenshot(driverSup.get(), description.getClassName());
     }
 
