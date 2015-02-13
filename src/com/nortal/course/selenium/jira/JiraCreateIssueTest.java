@@ -2,9 +2,11 @@ package com.nortal.course.selenium.jira;
 
 import com.google.common.base.Function;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+@Category(JiraSeleniumTestBase.class)
 public class JiraCreateIssueTest extends JiraSeleniumTestBase {
     /*
      * Source: http://tolkiengateway.net/wiki/Uncommon_words

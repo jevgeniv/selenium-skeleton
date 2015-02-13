@@ -39,6 +39,8 @@ public class GoogleSuggestTest {
             }
         }
 
+        ScreenshotRule.makeScreenshot(driver, "GoogleSuggest-cheeses-");
+
         // And now list the suggestions
         List<WebElement> allSuggestions = getSuggestions(driver);
 

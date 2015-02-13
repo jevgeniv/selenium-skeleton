@@ -34,6 +34,7 @@ dependencies {
     compile group: 'junit', name: 'junit', version: '4.+'
     compile 'org.seleniumhq.selenium:selenium-java:2.44.+'
     compile 'org.slf4j:slf4j-simple:1.7.+'
+    compile 'com.google.guava:guava:18.+'
 }
 
 /* custom properties */
