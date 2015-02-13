@@ -11,6 +11,7 @@ public class SeleniumConfig {
     private Properties properties;
 
     public void init() {
+        // "rc" for runtime configuration (as opposed to build-time)
         properties = new Properties(makePropertiesFromFile("selenium-common-rc.properties"));
         loadPropertiesFromFile(properties, "selenium-rc.properties");
     }
