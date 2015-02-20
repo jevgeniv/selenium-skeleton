@@ -32,6 +32,8 @@ public class ScreenshotRule extends TestWatcher {
                 filenamePrefix + "-" + new Date().toString() + "[" + (screenshotId++) + "].png";
 
         String fileName = "build" + File.separator + "reports" + File.separator + "tests" + File.separator + screenShotName;
+        fileName = fileName.replaceAll("\\s", "-");
+        // TODO remove spaces in filename (windows issue)
         log.info("saving screenshot: " + fileName + " , current url: " + driver.getCurrentUrl());
         try {
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
