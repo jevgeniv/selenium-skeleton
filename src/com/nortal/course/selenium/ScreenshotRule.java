@@ -29,11 +29,10 @@ public class ScreenshotRule extends TestWatcher {
 
     public static void makeScreenshot(WebDriver driver, String filenamePrefix) {
         final String screenShotName =
-                filenamePrefix + "-" + new Date().toString() + "[" + (screenshotId++) + "].png";
+                filenamePrefix + "-" + getTimestamp()+ "[" + (screenshotId++) + "].png";
 
         String fileName = "build" + File.separator + "reports" + File.separator + "tests" + File.separator + screenShotName;
         fileName = fileName.replaceAll("\\s", "-");
-        // TODO remove spaces in filename (windows issue)
         log.info("saving screenshot: " + fileName + " , current url: " + driver.getCurrentUrl());
         try {
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -41,5 +40,11 @@ public class ScreenshotRule extends TestWatcher {
         } catch (Exception ex) {
             log.warn("Could not make snapshot", ex);
         }
+    }
+
+    private static String getTimestamp(){
+        String t = new Date().toString();
+        t = t.replaceAll(":","_");
+        return t;
     }
 }

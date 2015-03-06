@@ -23,7 +23,7 @@ public class JiraCreateIssueTest extends JiraSeleniumTestBase {
         // Otherwise the original reference could get "disconnected" from the context.
         final CreateIssuePage createIssuePage = CreateIssuePage.makeInstance(this);
 
-        getWait().until(new Function<WebDriver, Boolean>() {
+        waits().getWait().until(new Function<WebDriver, Boolean>() {
             @Override
             public Boolean apply(WebDriver input) {
                 // createIssuePage.getSummaryProxy() != null will not work, because the Proxy is always there

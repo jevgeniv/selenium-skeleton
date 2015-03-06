@@ -9,10 +9,6 @@ import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * Base type of Selenium tests.
@@ -22,6 +18,7 @@ public class JiraSeleniumTestBase {
 
     private WebDriver driver;
     private static JiraSeleniumTestBase instance;
+    private Waits waits;
 
     @Rule
     public ScreenshotRule screenshotRule = new ScreenshotRule(new Supplier<WebDriver>() {
@@ -72,13 +69,18 @@ public class JiraSeleniumTestBase {
         return driver;
     }
 
-    protected Wait<WebDriver> getWait() {
-        return new FluentWait<WebDriver>(getDriver()).withTimeout(15, TimeUnit.SECONDS);
-    }
+
 
     protected LoginPage login() {
         LoginPage loginPage = new LoginPage(this);
         loginPage.login(getJiraUser(), getJiraPassword());
         return loginPage;
+    }
+
+    protected Waits waits(){
+        if(waits==null){
+            this.waits = new Waits(driver);
+        }
+        return waits;
     }
 }
