@@ -1,4 +1,4 @@
-package com.nortal.course.selenium.jira;
+package com.nortal.course.selenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

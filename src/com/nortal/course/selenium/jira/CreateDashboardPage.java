@@ -1,5 +1,6 @@
 package com.nortal.course.selenium.jira;
 
+import com.nortal.course.selenium.BasePageObject;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -8,7 +9,7 @@ import java.util.Date;
 /**
  * Created by karl on 20.02.2015.
  */
-public class CreateDashboardPage extends BasePageObject{
+public class CreateDashboardPage extends BasePageObject {
 
     @FindBy(xpath = "(//h1)[2]")
     private WebElement header;

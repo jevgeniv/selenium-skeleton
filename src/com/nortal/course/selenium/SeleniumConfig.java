@@ -1,6 +1,7 @@
 package com.nortal.course.selenium;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -18,7 +19,11 @@ public class SeleniumConfig {
 
     private void loadPropertiesFromFile(Properties p, String filename) {
         try {
-            p.load(getClass().getClassLoader().getResourceAsStream(filename));
+            InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream(filename);
+            if (resourceAsStream == null) {
+                throw new IllegalStateException("File " + filename + " could not be read");
+            }
+            p.load(resourceAsStream);
         } catch (IOException e) {
             throw new RuntimeException("Error reading properties from file " + filename, e);
         }

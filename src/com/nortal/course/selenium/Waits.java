@@ -1,4 +1,4 @@
-package com.nortal.course.selenium.jira;
+package com.nortal.course.selenium;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -16,7 +16,7 @@ public class Waits {
         this.driver = driver;
     }
 
-    protected Wait<WebDriver> getWait() {
+    public Wait<WebDriver> getWait() {
         return new FluentWait<WebDriver>(driver).withTimeout(15, TimeUnit.SECONDS);
     }
 }

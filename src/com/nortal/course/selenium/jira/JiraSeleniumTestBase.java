@@ -3,6 +3,7 @@ package com.nortal.course.selenium.jira;
 import com.google.common.base.Supplier;
 import com.nortal.course.selenium.ScreenshotRule;
 import com.nortal.course.selenium.SeleniumConfig;
+import com.nortal.course.selenium.Waits;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
