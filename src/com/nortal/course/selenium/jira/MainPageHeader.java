@@ -33,7 +33,7 @@ public class MainPageHeader {
 
     public ManageDashboardsPage getManageDashboardsPage(){
         dashBoardsBtn.click();
-        WebDriverWait wait = new WebDriverWait( driver , 10);
+        WebDriverWait wait = new WebDriverWait(driver , 10);
         wait.until(ExpectedConditions.elementToBeClickable(manageDashboardsBtn)).click();
         return new ManageDashboardsPage(driver);
     }
