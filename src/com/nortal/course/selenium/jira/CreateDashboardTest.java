@@ -1,7 +1,5 @@
 package com.nortal.course.selenium.jira;
 
-import com.nortal.course.selenium.ScreenshotRule;
-import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
@@ -30,13 +28,13 @@ public class CreateDashboardTest extends JiraSeleniumTestBase{
         createDashboardPage.addName();
         //5) In Add Shares select "Group" and in the box next of that "jira-users" and click  +Add
         createDashboardPage.selectShares(CreateDashboardPage.shareGroupValue);
-        //6
         createDashboardPage.selectGroup(CreateDashboardPage.groupJiraUsers);
-        //
         createDashboardPage.addShares();
-        //
+
+        // 6) add the dashboard
         createDashboardPage.add();
-        //
+
+        // 7) open list of owned dashboards and delete all test dashboards (TODO)
         // //table//tr/td[1]/div[2]/a[text()="Fri Mar 06 14:44:55 EET 2015 test dashboard"]
 
     }
