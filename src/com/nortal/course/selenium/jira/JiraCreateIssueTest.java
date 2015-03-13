@@ -21,7 +21,7 @@ public class JiraCreateIssueTest extends JiraSeleniumTestBase {
 
         // 'final' is a requirement for fields used within inner class.
         // Otherwise the original reference could get "disconnected" from the context.
-        final CreateIssuePage createIssuePage = CreateIssuePage.makeInstance(this);
+        final CreateIssuePage createIssuePage = new CreateIssuePage(this);
 
         waits().getWait().until(new Function<WebDriver, Boolean>() {
             @Override

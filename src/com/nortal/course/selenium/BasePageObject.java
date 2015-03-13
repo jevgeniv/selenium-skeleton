@@ -1,5 +1,6 @@
 package com.nortal.course.selenium;
 
+import com.nortal.course.selenium.jira.JiraSeleniumTestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +12,10 @@ import org.openqa.selenium.support.ui.Select;
  */
 public class BasePageObject {
     protected final WebDriver driver;
+
+    public BasePageObject(JiraSeleniumTestBase testBase) {
+        this(testBase.getDriver());
+    }
 
     public BasePageObject(WebDriver driver) {
         this.driver = driver;

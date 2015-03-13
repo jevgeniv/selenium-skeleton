@@ -1,23 +1,18 @@
 package com.nortal.course.selenium.jira;
 
+import com.nortal.course.selenium.BasePageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class CreateIssuePage {
+public class CreateIssuePage extends BasePageObject {
     private final JiraSeleniumTestBase testBase;
 
     @FindBy(id="summary")
     private WebElement summaryFieldProxy;
 
-    public static CreateIssuePage makeInstance(JiraSeleniumTestBase testBase) {
-        CreateIssuePage page = new CreateIssuePage(testBase);
-        PageFactory.initElements(testBase.getDriver(), page);
-        return page;
-    }
-
-    private CreateIssuePage(JiraSeleniumTestBase testBase) {
+    public CreateIssuePage(JiraSeleniumTestBase testBase) {
+        super(testBase);
         this.testBase = testBase;
     }
 

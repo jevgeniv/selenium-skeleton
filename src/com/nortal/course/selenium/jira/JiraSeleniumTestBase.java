@@ -63,7 +63,7 @@ public class JiraSeleniumTestBase {
         return getConfigParameter("selenium.jira.password");
     }
 
-    protected WebDriver getDriver() {
+    public WebDriver getDriver() {
         if (driver == null) {
             driver = new FirefoxDriver();
         }
