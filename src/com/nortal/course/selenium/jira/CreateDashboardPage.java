@@ -11,7 +11,7 @@ import java.util.Date;
  */
 public class CreateDashboardPage extends BasePageObject {
 
-    @FindBy(xpath = "(//h1)[2]")
+    @FindBy(xpath = "//section/header//h1")
     private WebElement header;
 
     @FindBy(id = "add-dashboard-submit")
@@ -26,7 +26,17 @@ public class CreateDashboardPage extends BasePageObject {
     @FindBy(id = "share_type_selector")
     private WebElement shareTypeSelector;
 
+    @FindBy(id = "groupShare")
+    private WebElement groupSelector;
+
+    @FindBy(id = "share_add_group")
+    private WebElement addShares;
+
+    @FindBy(id = "delete_dashboard")
+    private WebElement delete_dashboards;
+
     public static String shareGroupValue = "group";
+    public static String groupJiraUsers = "jira-users";
     private JiraSeleniumTestBase testContext;
 
     public CreateDashboardPage(JiraSeleniumTestBase testContext){
@@ -43,8 +53,19 @@ public class CreateDashboardPage extends BasePageObject {
         testContext.waits();
 
     }
+
+    public void selectGroup(String shareName){
+        super.selectElement(groupSelector, shareName);
+        testContext.waits();
+    }
+
+
     public void add(){
         add.click();
+    }
+
+    public void addShares(){
+        addShares.click();
     }
 
     public String getHeaderText(){
@@ -54,6 +75,7 @@ public class CreateDashboardPage extends BasePageObject {
     public String getNameError(){
         return nameFieldError.getText();
     }
+
     private String getUniqueDashboardName(){
         return new Date().toString() + " test dashboard";
     }

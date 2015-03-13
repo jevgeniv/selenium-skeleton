@@ -12,23 +12,23 @@ import static org.junit.Assert.assertEquals;
  */
 public class ManageDashboardsPage {
 
-    @FindBy(xpath = "(//h1)[2]")
+    @FindBy(xpath = "//section/header//h1")
     private WebElement header;
 
     @FindBy(id = "create_page")
     private WebElement createNewDashboard;
 
-    private final WebDriver driver;
+    private JiraSeleniumTestBase testBase;
 
-    public ManageDashboardsPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public ManageDashboardsPage(JiraSeleniumTestBase testBase) {
+        this.testBase = testBase;
+        PageFactory.initElements(testBase.getDriver(), this);
         assertEquals("Manage Dashboards", header.getText());
     }
 
     public CreateDashboardPage getCreateDashboardPage(){
         createNewDashboard.click();
-        return new CreateDashboardPage(driver);
+        return new CreateDashboardPage(testBase);
     }
 
     public String getHeaderText(){

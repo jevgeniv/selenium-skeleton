@@ -11,8 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Elements present on most of non-overlayed pages.
  */
 public class MainPageHeader {
-    private final WebDriver driver;
-
     @FindBy(id = "create_link")
     private WebElement createIssueClickableProxy;
 
@@ -21,10 +19,11 @@ public class MainPageHeader {
 
     @FindBy(id = "manage_dash_link_lnk")
     private WebElement manageDashboardsBtn;
+    private JiraSeleniumTestBase testBase;
 
-    public MainPageHeader(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public MainPageHeader(JiraSeleniumTestBase testBase){
+        this.testBase = testBase;
+        PageFactory.initElements(testBase.getDriver(), this);
     }
 
     public void clickCreateIssue() {
@@ -33,8 +32,8 @@ public class MainPageHeader {
 
     public ManageDashboardsPage getManageDashboardsPage(){
         dashBoardsBtn.click();
-        WebDriverWait wait = new WebDriverWait(driver , 10);
+        WebDriverWait wait = new WebDriverWait( testBase.getDriver() , 20);
         wait.until(ExpectedConditions.elementToBeClickable(manageDashboardsBtn)).click();
-        return new ManageDashboardsPage(driver);
+        return new ManageDashboardsPage(testBase);
     }
 }
